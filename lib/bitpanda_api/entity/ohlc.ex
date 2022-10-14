@@ -1,4 +1,4 @@
-defmodule BitpandaApi.Ohlc do
+defmodule BitpandaApi.Entity.Ohlc do
   @moduledoc """
   Open-High-Low-Close chart for asset
   """

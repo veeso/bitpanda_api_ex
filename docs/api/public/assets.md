@@ -1,5 +1,7 @@
 # Asset
 
+Get all the assets based on class which are available on bitpanda.
+
 ## Request
 
 > <https://api.bitpanda.com/v3/assets?page=0&page_size=500&type[]=${ASSET_CLASS}>

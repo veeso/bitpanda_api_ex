@@ -7,7 +7,7 @@ defmodule BitpandaApi.Api.Public.Assets do
   import Brex.Result.Helpers
   import Brex.Result.Mappers
 
-  alias BitpandaApi.Asset
+  alias BitpandaApi.Entity.Asset
   alias BitpandaApi.Api.Error
   alias HTTPoison
   alias Poison

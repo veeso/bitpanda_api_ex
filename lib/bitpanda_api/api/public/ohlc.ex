@@ -7,7 +7,7 @@ defmodule BitpandaApi.Api.Public.Ohlc do
   import Brex.Result.Helpers
   import Brex.Result.Mappers
 
-  alias BitpandaApi.Ohlc
+  alias BitpandaApi.Entity.Ohlc
   alias BitpandaApi.Api.Error
   alias Decimal
 

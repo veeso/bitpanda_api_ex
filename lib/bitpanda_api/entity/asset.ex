@@ -1,4 +1,4 @@
-defmodule BitpandaApi.Asset do
+defmodule BitpandaApi.Entity.Asset do
   @moduledoc """
   Describes an asset listed on Bitpanda
   """

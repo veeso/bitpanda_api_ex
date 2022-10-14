@@ -1,5 +1,7 @@
 # Open-High-Low-Close
 
+Get ohlc charts for a certain period for one or more assets on bitpanda
+
 ## Request
 
 > <https://api.bitpanda.com/v2/ohlc/eur/${PERIOD}?assets=${ASSET_SYMBOL}>
