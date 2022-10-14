@@ -1,8 +1,8 @@
-defmodule BitpandaApi.Api.OhlcTest do
+defmodule BitpandaApi.Api.Public.OhlcTest do
   use ExUnit.Case
   doctest BitpandaApi
 
-  alias BitpandaApi.Api.Ohlc
+  alias BitpandaApi.Api.Public.Ohlc
 
   test "should collect OHLC for one asset for a year withour result" do
     assert match?(

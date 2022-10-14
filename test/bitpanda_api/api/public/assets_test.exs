@@ -1,8 +1,8 @@
-defmodule BitpandaApi.Api.AssetsTest do
+defmodule BitpandaApi.Api.Public.AssetsTest do
   use ExUnit.Case
   doctest BitpandaApi
 
-  alias BitpandaApi.Api.Assets
+  alias BitpandaApi.Api.Public.Assets
 
   test "should collect assets by class type stock" do
     {:ok, assets} = Assets.get_by_class(:stock)

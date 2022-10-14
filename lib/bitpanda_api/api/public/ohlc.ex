@@ -1,4 +1,4 @@
-defmodule BitpandaApi.Api.Ohlc do
+defmodule BitpandaApi.Api.Public.Ohlc do
   @moduledoc """
   Functions to fetch OHLC for a certain asset or many assets
   """

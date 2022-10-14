@@ -1,4 +1,4 @@
-defmodule BitpandaApi.Api.Assets do
+defmodule BitpandaApi.Api.Public.Assets do
   @moduledoc """
   Get assets API requests
   """
