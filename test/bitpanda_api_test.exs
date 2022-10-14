@@ -3,6 +3,6 @@ defmodule BitpandaApiTest do
   doctest BitpandaApi
 
   test "greets the world" do
-    assert BitpandaApi.hello() == :world
+    assert BitpandaApi.version() == "0.1.0"
   end
 end

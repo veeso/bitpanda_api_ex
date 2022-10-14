@@ -4,15 +4,10 @@ defmodule BitpandaApi do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> BitpandaApi.hello()
-      :world
-
+  Get library version
   """
-  def hello do
-    :world
+  @spec version() :: String.t()
+  def version do
+    "0.1.0"
   end
 end

@@ -1,6 +1,6 @@
 # Bitpanda API ex
 
-<p align="center">~ Elixir Bitpanda v3 API client ~</p>
+<p align="center">~ Elixir Bitpanda Public API client ~</p>
 <p align="center">
   <a href="#get-started-">Get started</a>
   ·

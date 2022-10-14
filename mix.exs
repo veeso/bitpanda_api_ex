@@ -5,7 +5,7 @@ defmodule BitpandaApi.MixProject do
     [
       app: :bitpanda_api,
       deps: deps(),
-      elixir: "~> 1.14",
+      elixir: "~> 1.10",
       homepage_url: "https://github.com/veeso/bitpanda_api_ex",
       name: "Bitpanda API",
       package: package(),
@@ -25,6 +25,7 @@ defmodule BitpandaApi.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:brex_result, "~> 0.4.0"},
       {:decimal, "~> 2.0"},
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"},
