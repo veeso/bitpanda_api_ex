@@ -6,6 +6,8 @@ this document contains all the known API requests for the Bitpanda API.
 
 With public API, we mean the UNOFFICIAL API which is accessed by the client on bitpanda pages to collect asset prices.
 
+> ⚠️ We don't guarantee that the public api is reliable, nor it'll keep working, since it's unofficial.
+
 - [assets](api/public/assets.md)
 - [ohlc](api/public/ohlc.md)
 
