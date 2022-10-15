@@ -29,6 +29,15 @@ defmodule BitpandaApi.Entity.Trade do
           | :sell
 
   @typedoc """
+  Defines the status of a trade
+  """
+  @type status ::
+          :pending
+          | :processing
+          | :finished
+          | :canceled
+
+  @typedoc """
   A bitpanda Trade
   """
   @type t :: %__MODULE__{
@@ -42,7 +51,7 @@ defmodule BitpandaApi.Entity.Trade do
           id: String.t(),
           price: Decimal.t(),
           related_swap_trade: t() | nil,
-          status: String.t(),
+          status: status(),
           symbol: String.t(),
           type: type()
         }

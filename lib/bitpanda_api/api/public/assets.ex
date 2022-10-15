@@ -40,7 +40,8 @@ defmodule BitpandaApi.Api.Public.Assets do
     next
     |> url(class)
     |> HTTPoison.get()
-    |> bind(&process_response(&1, class))
+    |> map_error(&Error.http_error(&1))
+    |> bind(&process_response(Map.get(&1, :body), Map.get(&1, :status_code), class))
     |> bind(fn {new_assets, next_req} ->
       assets
       |> Enum.concat(new_assets)
@@ -49,17 +50,19 @@ defmodule BitpandaApi.Api.Public.Assets do
   end
 
   @spec process_response(
-          HTTPoison.Response.t(),
+          String.t(),
+          integer(),
           Asset.class()
         ) ::
           {:ok, {[Asset.t()], String.t() | nil}} | {:error, Error.t()}
-  defp process_response(response, class) do
-    response
-    |> Map.get(:body)
+  defp process_response(body, 200, class) do
+    body
     |> Poison.decode(%{keys: :atoms})
     |> map_error(&Error.parse_error(inspect(&1)))
     |> bind(&json_to_assets(&1, class))
   end
+
+  defp process_response(_, _, _), do: error(Error.server_error())
 
   @spec json_to_assets(%{data: [map()], links: map()}, Asset.class()) ::
           {:ok, {[Asset.t()], String.t() | nil}} | {:error, Error.t()}

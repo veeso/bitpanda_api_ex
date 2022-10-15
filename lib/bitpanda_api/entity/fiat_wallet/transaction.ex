@@ -1,25 +1,20 @@
-defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
+defmodule BitpandaApi.Entity.FiatWallet.Transaction do
   @moduledoc """
-  This entity defines a transaction in a crypto wallet
+  This entity defines a transaction in a fiat wallet
   """
 
   alias Decimal
 
   defstruct [
-    :amount_eur,
     :amount,
-    :confirmations,
-    :confirmed,
-    :cryptocoin_id,
-    :current_fiat_amount,
-    :current_fiat_id,
     :datetime,
     :fee,
-    :id,
-    :recipient,
-    :related_wallet_transaction_id,
+    :fiat_id,
+    :in_or_out,
     :status,
+    :to_eur_rate,
     :transaction_type,
+    :user_id,
     :wallet_id
   ]
 
@@ -45,23 +40,25 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
           | :ico
 
   @typedoc """
+  Describes the transaction direction
+  """
+  @type direction ::
+          :incoming
+          | :outgoing
+
+  @typedoc """
   Defines a crypto wallet transaction
   """
   @type t :: %__MODULE__{
-          amount_eur: Decimal.t(),
           amount: Decimal.t(),
-          confirmations: integer(),
-          confirmed: boolean(),
-          cryptocoin_id: String.t(),
-          current_fiat_amount: Decimal.t(),
-          current_fiat_id: String.t(),
           datetime: DateTime.t(),
           fee: Decimal.t(),
-          id: String.t(),
-          recipient: String.t(),
-          related_wallet_transaction_id: String.t(),
+          fiat_id: String.t(),
+          in_or_out: direction(),
           status: status(),
+          to_eur_rate: Decimal.t(),
           transaction_type: transaction_type(),
+          user_id: String.t(),
           wallet_id: String.t()
         }
 end

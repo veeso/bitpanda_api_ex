@@ -9,6 +9,7 @@ defmodule BitpandaApi.Api.Public.Ohlc do
 
   alias BitpandaApi.Entity.Ohlc
   alias BitpandaApi.Api.Error
+  alias BitpandaApi.Utils
   alias Decimal
 
   @doc """
@@ -22,7 +23,8 @@ defmodule BitpandaApi.Api.Public.Ohlc do
     |> Enum.join(",")
     |> url(period)
     |> HTTPoison.get()
-    |> bind(&parse_response(&1, period, symbols))
+    |> map_error(&Error.http_error(&1))
+    |> bind(&parse_response(Map.get(&1, :body), Map.get(&1, :status_code), period, symbols))
   end
 
   def get(symbol, period) do
@@ -51,18 +53,21 @@ defmodule BitpandaApi.Api.Public.Ohlc do
   end
 
   @spec parse_response(
-          HTTPoison.Response.t(),
+          String.t(),
+          integer(),
           Ohlc.period(),
           [String.t()]
         ) ::
           {:ok, [Ohlc.t()]} | {:error, Error.t()}
-  defp parse_response(response, period, symbols) do
-    response
-    |> Map.get(:body)
+
+  defp parse_response(body, 200, period, symbols) do
+    body
     |> Poison.decode()
     |> map_error(&Error.parse_error(inspect(&1)))
     |> bind(&iter_symbols_in_response(symbols, &1, period))
   end
+
+  defp parse_response(_, _, _, _), do: error(Error.server_error())
 
   @spec iter_symbols_in_response([String.t()], %{data: [map()]}, Ohlc.period()) ::
           {:ok, [Ohlc.t()]} | {:error, Error.t()}
@@ -107,11 +112,11 @@ defmodule BitpandaApi.Api.Public.Ohlc do
          }
        }) do
     ok(%{
-      close: Decimal.parse(close),
-      high: Decimal.parse(high),
-      low: Decimal.parse(low),
-      open: Decimal.parse(open),
-      time: DateTime.from_iso8601(date_iso8601)
+      close: Utils.decimal!(close),
+      high: Utils.decimal!(high),
+      low: Utils.decimal!(low),
+      open: Utils.decimal!(open),
+      time: Utils.datetime!(date_iso8601)
     })
   catch
     error ->
