@@ -5,10 +5,21 @@ defmodule BitpandaApi.Entity.CryptoWallet do
 
   alias Decimal
 
+  defstruct [
+    :balance,
+    :cryptocoin_id,
+    :deleted,
+    :id,
+    :is_default,
+    :name,
+    :pending_transactions_count,
+    :symbol
+  ]
+
   @typedoc """
   Defines a crypto wallet
   """
-  @type t :: %{
+  @type t :: %__MODULE__{
           balance: Decimal.t(),
           cryptocoin_id: String.t(),
           deleted: boolean(),

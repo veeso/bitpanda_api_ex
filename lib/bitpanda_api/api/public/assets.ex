@@ -75,7 +75,7 @@ defmodule BitpandaApi.Api.Public.Assets do
         ) :: {:ok, Asset.t()} | {:error, Error.t()}
   defp asset_data_to_asset(%{attributes: %{symbol: symbol, name: name}, id: id}, class),
     do:
-      ok(%{
+      ok(%Asset{
         id: id,
         name: name,
         symbol: symbol,

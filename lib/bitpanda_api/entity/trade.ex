@@ -5,6 +5,22 @@ defmodule BitpandaApi.Entity.Trade do
 
   alias Decimal
 
+  defstruct [
+    :amount_asset,
+    :amount_fiat,
+    :datetime,
+    :fiat_to_eur_rate,
+    :id_asset,
+    :id_fiat,
+    :id_wallet,
+    :id,
+    :price,
+    :related_swap_trade,
+    :status,
+    :symbol,
+    :type
+  ]
+
   @typedoc """
   Trade type
   """
@@ -15,7 +31,7 @@ defmodule BitpandaApi.Entity.Trade do
   @typedoc """
   A bitpanda Trade
   """
-  @type t :: %{
+  @type t :: %__MODULE__{
           amount_asset: Decimal.t(),
           amount_fiat: Decimal.t(),
           datetime: DateTime.t(),

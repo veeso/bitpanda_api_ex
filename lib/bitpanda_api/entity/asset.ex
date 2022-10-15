@@ -16,10 +16,12 @@ defmodule BitpandaApi.Entity.Asset do
   @typedoc """
   An asset in Bitpanda
   """
-  @type t :: %{
+  @type t :: %__MODULE__{
           id: String.t(),
           name: String.t(),
           symbol: String.t(),
           type: class()
         }
+
+  defstruct [:id, :name, :symbol, :type]
 end

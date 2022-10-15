@@ -5,6 +5,8 @@ defmodule BitpandaApi.Entity.Ohlc do
 
   alias Decimal
 
+  defstruct [:symbol, :chart, :period]
+
   @typedoc """
   OHLC chart period
   """
@@ -17,7 +19,7 @@ defmodule BitpandaApi.Entity.Ohlc do
   @typedoc """
   Describes a OHLC chart for an asset
   """
-  @type t :: %{
+  @type t :: %__MODULE__{
           symbol: String.t(),
           chart: [entry()],
           period: period()

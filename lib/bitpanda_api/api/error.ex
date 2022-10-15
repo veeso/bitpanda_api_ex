@@ -5,10 +5,12 @@ defmodule BitpandaApi.Api.Error do
 
   alias HTTPoison.Error, as: HttpError
 
+  defstruct [:type, :message]
+
   @typedoc """
   Api error
   """
-  @type t :: %{
+  @type t :: %__MODULE__{
           type: type(),
           message: String.t()
         }
@@ -22,12 +24,12 @@ defmodule BitpandaApi.Api.Error do
           | :no_such_asset
 
   @spec http_error(HttpError.t()) :: t()
-  def http_error(error), do: %{type: :http, message: inspect(error)}
+  def http_error(error), do: %__MODULE__{type: :http, message: inspect(error)}
 
   @spec parse_error(String.t()) :: t()
-  def parse_error(message), do: %{type: :parse, message: message}
+  def parse_error(message), do: %__MODULE__{type: :parse, message: message}
 
   @spec no_such_asset(String.t()) :: t()
   def no_such_asset(symbol),
-    do: %{type: :no_such_asset, message: "no such asset with symbol: #{symbol}"}
+    do: %__MODULE__{type: :no_such_asset, message: "no such asset with symbol: #{symbol}"}
 end

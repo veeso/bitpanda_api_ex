@@ -85,7 +85,7 @@ defmodule BitpandaApi.Api.Public.Ohlc do
       |> fmap(&Enum.concat(acc, [&1]))
     end)
     |> fmap(
-      &%{
+      &%Ohlc{
         symbol: symbol,
         chart: &1,
         period: period

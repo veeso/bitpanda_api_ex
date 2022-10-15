@@ -5,6 +5,24 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
 
   alias Decimal
 
+  defstruct [
+    :amount_eur,
+    :amount,
+    :confirmations,
+    :confirmed,
+    :cryptocoin_id,
+    :current_fiat_amount,
+    :current_fiat_id,
+    :datetime,
+    :fee,
+    :id,
+    :recipient,
+    :related_wallet_transaction_id,
+    :status,
+    :type,
+    :wallet_id
+  ]
+
   @typedoc """
   Describes the transaction type
   """
@@ -20,7 +38,7 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
   @typedoc """
   Defines a crypto wallet transaction
   """
-  @type t :: %{
+  @type t :: %__MODULE__{
           amount_eur: Decimal.t(),
           amount: Decimal.t(),
           confirmations: integer(),
