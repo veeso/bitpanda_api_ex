@@ -11,6 +11,7 @@ defmodule BitpandaApi.MixProject do
       package: package(),
       source_url: "https://github.com/veeso/bitpanda_api_ex",
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
       version: "0.1.0"
     ]
   end
@@ -29,7 +30,8 @@ defmodule BitpandaApi.MixProject do
       {:decimal, "~> 2.0"},
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"},
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.15", only: :test}
     ]
   end
 
