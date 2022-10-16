@@ -21,6 +21,11 @@
       src="https://img.shields.io/github/stars/veeso/bitpanda_api_ex.svg"
       alt="Repo stars"
   /></a>
+  <a href="https://hex.pm/packages/bitpanda_api"
+    ><img
+      src="https://img.shields.io/hexpm/v/bitpanda_api"
+      alt="version"
+  /></a>
   <a href="https://ko-fi.com/veeso">
     <img
       src="https://img.shields.io/badge/donate-ko--fi-red"
@@ -56,7 +61,14 @@
 
 ## About bitpanda_api_ex 🐼
 
-TODO
+Bitpanda API is an Elixir library to send GET requests to the Bitpanda User and Public APIs.
+
+These requests are useful to:
+
+- collect all the available assets on bitpanda
+- collect the OHLC chart for a certain asset
+- collect the user's trades
+- collect the balance in each user's wallet
 
 ---
 
@@ -67,8 +79,6 @@ TODO
 ```exs
 {:bitpanda_api, "~> 0.1.0"},
 ```
-
-TODO EXAMPLES
 
 ---
 
