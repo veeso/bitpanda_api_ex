@@ -32,7 +32,8 @@ defmodule BitpandaApi.MixProject do
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.15", only: :test}
+      {:excoveralls, "~> 0.15", only: :test},
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false}
     ]
   end
 
