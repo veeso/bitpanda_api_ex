@@ -5,6 +5,7 @@ defmodule BitpandaApi.MixProject do
     [
       app: :bitpanda_api,
       deps: deps(),
+      description: description(),
       elixir: "~> 1.10",
       homepage_url: "https://github.com/veeso/bitpanda_api_ex",
       name: "Bitpanda API",
@@ -18,10 +19,10 @@ defmodule BitpandaApi.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
   def application do
-    [
-      extra_applications: [:logger]
-    ]
+    []
   end
+
+  defp description, do: "Elixir Bitpanda API client"
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do

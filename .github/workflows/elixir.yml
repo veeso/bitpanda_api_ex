@@ -42,3 +42,5 @@ jobs:
         run: mix format --check-formatted
       - name: Coverage
         run: mix coveralls.github
+        env:
+          BITPANDA_APIKEY: ${{ secrets.BITPANDA_APIKEY }}
