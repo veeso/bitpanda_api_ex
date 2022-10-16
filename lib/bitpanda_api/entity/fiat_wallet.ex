@@ -10,6 +10,7 @@ defmodule BitpandaApi.Entity.FiatWallet do
     :fiat_id,
     :id,
     :name,
+    :pending_transactions_count,
     :symbol
   ]
 
@@ -21,6 +22,7 @@ defmodule BitpandaApi.Entity.FiatWallet do
           fiat_id: String.t(),
           id: String.t(),
           name: String.t(),
+          pending_transactions_count: integer(),
           symbol: String.t()
         }
 end

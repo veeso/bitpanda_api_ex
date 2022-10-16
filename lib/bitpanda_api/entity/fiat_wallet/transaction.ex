@@ -11,6 +11,7 @@ defmodule BitpandaApi.Entity.FiatWallet.Transaction do
     :fee,
     :fiat_id,
     :in_or_out,
+    :id,
     :status,
     :to_eur_rate,
     :transaction_type,
@@ -37,12 +38,11 @@ defmodule BitpandaApi.Entity.FiatWallet.Transaction do
           | :withdrawal
           | :transfer
           | :refund
-          | :ico
 
   @typedoc """
   Describes the transaction direction
   """
-  @type direction ::
+  @type in_or_out ::
           :incoming
           | :outgoing
 
@@ -54,7 +54,8 @@ defmodule BitpandaApi.Entity.FiatWallet.Transaction do
           datetime: DateTime.t(),
           fee: Decimal.t(),
           fiat_id: String.t(),
-          in_or_out: direction(),
+          id: String.t(),
+          in_or_out: in_or_out(),
           status: status(),
           to_eur_rate: Decimal.t(),
           transaction_type: transaction_type(),

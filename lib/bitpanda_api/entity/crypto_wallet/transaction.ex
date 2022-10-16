@@ -16,8 +16,10 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
     :datetime,
     :fee,
     :id,
+    :in_or_out,
     :recipient,
     :related_wallet_transaction_id,
+    :related_wallet_id,
     :status,
     :transaction_type,
     :wallet_id
@@ -31,6 +33,9 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
           | :processing
           | :finished
           | :canceled
+          | :unconfirmed
+          | :open_invitation
+          | :unconfirmed_transaction_out
 
   @typedoc """
   Describes the transaction type
@@ -43,6 +48,10 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
           | :transfer
           | :refund
           | :ico
+
+  @type in_or_out ::
+          :incoming
+          | :outgoing
 
   @typedoc """
   Defines a crypto wallet transaction
@@ -58,8 +67,10 @@ defmodule BitpandaApi.Entity.CryptoWallet.Transaction do
           datetime: DateTime.t(),
           fee: Decimal.t(),
           id: String.t(),
+          in_or_out: in_or_out(),
           recipient: String.t(),
           related_wallet_transaction_id: String.t(),
+          related_wallet_id: String.t(),
           status: status(),
           transaction_type: transaction_type(),
           wallet_id: String.t()

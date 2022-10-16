@@ -3,12 +3,15 @@ defmodule BitpandaApi.Entity.AssetWallet do
   A wallet for a single asset
   """
 
+  alias BitpandaApi.Entity.Asset
+
   alias Decimal
 
   defstruct [
     :asset_id,
     :asset_symbol,
     :balance,
+    :class,
     :deleted,
     :id,
     :is_default,
@@ -22,6 +25,7 @@ defmodule BitpandaApi.Entity.AssetWallet do
           asset_id: String.t(),
           asset_symbol: String.t(),
           balance: Decimal.t(),
+          class: Asset.class(),
           deleted: boolean(),
           id: String.t(),
           is_default: boolean(),
