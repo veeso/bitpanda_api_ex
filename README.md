@@ -4,7 +4,7 @@
 <p align="center">
   <a href="#get-started-">Get started</a>
   ·
-  <a href="https://hexdocs.pm/bitpanda_api/BipandaApi.html" target="_blank">Documentation</a>
+  <a href="https://hexdocs.pm/bitpanda_api/BitpandaApi.html" target="_blank">Documentation</a>
 </p>
 
 <p align="center">Developed by <a href="https://veeso.github.io/" target="_blank">@veeso</a></p>
@@ -84,7 +84,7 @@ These requests are useful to:
 
 ## Documentation 📚
 
-The developer documentation can be found on Rust Docs at <https://hexdocs.pm/bitpanda_api/BipandaApi.html>
+The developer documentation can be found on Rust Docs at <https://hexdocs.pm/bitpanda_api/BitpandaApi.html>
 
 ---
 
